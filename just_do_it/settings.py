@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
+import django_heroku
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -122,3 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
+# To deploy your branch on Heroku you need to run the following command:
+# git push heroku branch-name:master
+# Don't forget to run `heroku pg:promote HEROKU_POSTGRESQL_SILVER_URL`
+# so HEROKU_POSTGRESQL_SILVER_URL aliases DATABASE_URL
