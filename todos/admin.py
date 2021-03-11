@@ -8,6 +8,7 @@ class TaskAdmin(admin.ModelAdmin):
         'title',
         'status',
         'priority',
+        'due_date',
         'created_at',
         'modified_at',
     )
