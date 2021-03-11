@@ -26,5 +26,6 @@ class Task(models.Model):
         choices=Priority.choices,
         default=Priority.MAJOR,
     )
+    due_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
